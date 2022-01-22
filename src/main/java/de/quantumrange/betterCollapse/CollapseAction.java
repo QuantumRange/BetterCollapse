@@ -21,11 +21,18 @@ public class CollapseAction extends AnAction {
 		for (QProjectView view : QProjectView.views) {
 			if (view.getProjectName().equals(e.getProject().getName())) {
 				JTree tree = view.getTree();
-				TreePath path = tree.getSelectionPath().getParentPath();
 
-				if (path != null && path.getPathCount() != 1) tree.collapsePath(path);
+				if (tree != null) {
+					TreePath path = tree.getSelectionPath().getParentPath();
 
-				break;
+					if (path != null) {
+						if (path.getPathCount() != 1) {
+							tree.collapsePath(path);
+						}
+					}
+				}
+
+
 			}
 		}
 	}
