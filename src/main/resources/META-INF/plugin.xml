@@ -1,0 +1,22 @@
+<idea-plugin>
+    <id>de.quantumrange.betterCollapse</id>
+    <name>BetterCollapse</name>
+    <version>1.0</version>
+    <vendor email="quantumrange@mailbox.org">QuantumRange</vendor>
+    <description><![CDATA[
+        Collapses the parent folder of the currently selected file.<br>
+      ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <extensions defaultExtensionNs="com.intellij">
+<!--        <treeStructureProvider implementation="de.quantumrange.betterCollapse.QTreeStructureProvider"/>-->
+        <projectViewPane implementation="de.quantumrange.betterCollapse.QProjectView"/>
+    </extensions>
+
+    <actions>
+        <action id="foldingRoot" class="de.quantumrange.betterCollapse.CollapseAction" text="Collapse Parent Directory">
+            <add-to-group group-id="ProjectViewPopupMenu" anchor="last"/>
+            <keyboard-shortcut keymap="$default" first-keystroke="alt up"/>
+        </action>
+    </actions>
+</idea-plugin>
